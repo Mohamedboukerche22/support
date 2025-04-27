@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support Our Mission</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Support Us ❤️</h1>
+        <p>If you like what we do, you can support us with a donation!</p>
+
+        <div class="wallet">
+            <h2>Donate USDT (TRC20)</h2>
+            <img src="usdt_qr.png" alt="USDT QR Code">
+            <p class="address">Your-USDT-Wallet-Address-Here</p>
+            <button onclick="copyToClipboard('0xE814D11eA68551E5c5101eBB9601C86B93B27bE7')">Copy Address</button>
+        </div>
+
+        <div class="wallet">
+            <h2>Donate Bitcoin (BTC)</h2>
+            <img src="btc_qr.png" alt="BTC QR Code">
+            <p class="address">Your-BTC-Wallet-Address-Here</p>
+            <button onclick="copyToClipboard('bc1qmyxyzcrmvgzhl7l7a87dcs2ddpxsr48rzdzw8n')">Copy Address</button>
+        </div>
+
+        <footer>
+            <p>Thank you for your support! 🚀</p>
+        </footer>
+    </div>
+
+    <script>
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text);
+            alert("Wallet address copied!");
+        }
+    </script>
+</body>
+</html>
