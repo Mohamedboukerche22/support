@@ -1,176 +1,60 @@
 :root {
-            --primary: #6c5ce7;
-            --secondary: #a29bfe;
-            --accent: #fd79a8;
-            --dark: #1a1a2e;
-            --darker: #16213e;
-            --light: #e2e2e2;
-            --lighter: #f8f9fa;
-        }
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, var(--dark), var(--darker));
-            margin: 0;
-            padding: 0;
-            min-height: 100vh;
-            color: var(--light);
-        }
+    --primary: #6c5ce7;
+    --secondary: #a29bfe;
+    --accent: #fd79a8;
+    --dark: #1a1a2e;
+    --darker: #16213e;
+    --light: #e2e2e2;
+    --lighter: #f8f9fa;
+}
 
-        .container {
-            max-width: 700px;
-            margin: 50px auto;
-            background: rgba(26, 26, 46, 0.8);
-            padding: 40px;
-            text-align: center;
-            border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, var(--dark), var(--darker));
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    color: var(--light);
+}
 
-        h1 {
-            color: var(--lighter);
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            position: relative;
-            display: inline-block;
-        }
+.container {
+    max-width: 700px;
+    margin: 50px auto;
+    background: rgba(26, 26, 46, 0.8);
+    padding: 40px;
+    text-align: center;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
 
-        h1::after {
-            content: '';
-            position: absolute;
-            width: 60%;
-            height: 3px;
-            background: linear-gradient(90deg, var(--primary), var(--accent));
-            bottom: -10px;
-            left: 20%;
-            border-radius: 3px;
-        }
+h1 {
+    color: var(--lighter);
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
 
-        p {
-            color: var(--secondary);
-            font-size: 1.1rem;
-            line-height: 1.6;
-        }
+.wallet {
+    background: rgba(22, 33, 62, 0.6);
+    border: 1px solid rgba(108, 92, 231, 0.3);
+}
 
-        .wallet {
-            margin-top: 40px;
-            padding: 25px;
-            background: rgba(22, 33, 62, 0.6);
-            border-radius: 12px;
-            border: 1px solid rgba(108, 92, 231, 0.3);
-            transition: transform 0.3s, box-shadow 0.3s;
-            position: relative;
-            overflow: hidden;
-        }
+.address {
+    background: rgba(0, 0, 0, 0.3);
+    color: var(--lighter);
+}
 
-        .wallet::before {
-            content: '';
-            position: absolute;
-            top: -2px;
-            left: -2px;
-            right: -2px;
-            bottom: -2px;
-            background: linear-gradient(45deg, var(--primary), var(--accent), var(--secondary));
-            z-index: -1;
-            border-radius: 14px;
-            opacity: 0.3;
-        }
+button {
+    background: linear-gradient(45deg, var(--primary), var(--secondary));
+    box-shadow: 0 4px 15px rgba(108, 92, 231, 0.3);
+}
 
-        .wallet:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
-        }
+button:hover {
+    background: linear-gradient(45deg, var(--secondary), var(--primary));
+    box-shadow: 0 8px 20px rgba(108, 92, 231, 0.4);
+}
 
-        .wallet h2 {
-            color: var(--lighter);
-            margin-bottom: 15px;
-            font-size: 1.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-        }
-
-        .wallet img {
-            margin: 15px auto;
-            width: 180px;
-            height: 180px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 8px;
-            padding: 10px;
-            background: white;
-        }
-
-        .address {
-            font-family: 'Courier New', monospace;
-            font-weight: bold;
-            word-break: break-word;
-            margin: 15px 0;
-            padding: 12px;
-            background: rgba(0, 0, 0, 0.3);
-            border-radius: 8px;
-            border-left: 3px solid var(--accent);
-            color: var(--lighter);
-            font-size: 0.9rem;
-        }
-
-        button {
-            background: linear-gradient(45deg, var(--primary), var(--secondary));
-            color: white;
-            border: none;
-            padding: 12px 25px;
-            border-radius: 30px;
-            cursor: pointer;
-            margin-top: 10px;
-            font-size: 1rem;
-            font-weight: 600;
-            transition: all 0.3s;
-            box-shadow: 0 4px 15px rgba(108, 92, 231, 0.3);
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(108, 92, 231, 0.4);
-            background: linear-gradient(45deg, var(--secondary), var(--primary));
-        }
-
-        button:active {
-            transform: translateY(0);
-        }
-
-        footer {
-            margin-top: 50px;
-            font-size: 1rem;
-            color: var(--secondary);
-            position: relative;
-        }
-
-        footer::before {
-            content: '';
-            position: absolute;
-            width: 40%;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(162, 155, 254, 0.5), transparent);
-            top: -20px;
-            left: 30%;
-        }
-
-        .pulse {
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-
-        .coin-icon {
-            font-size: 1.2em;
-            margin-right: 5px;
-        }
+footer {
+    color: var(--secondary);
+}
