@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Support Our Mission</title>
+    <title>Support us </title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -11,7 +11,6 @@
     <div class="container">
         <h1>Support Our Mission <span class="pulse">❤️</span></h1>
         <p>If you appreciate what we do, consider supporting us with a donation to help us continue our work!</p>
-
         <div class="wallet">
             <h2><i class="fab fa-ethereum coin-icon"></i> Donate USDT (TRC20)</h2>
             <img src="usdt_qr.png" alt="USDT QR Code">
@@ -20,7 +19,6 @@
                 <i class="far fa-copy"></i> Copy Address
             </button>
         </div>
-
         <div class="wallet">
             <h2><i class="fab fa-bitcoin coin-icon"></i> Donate Bitcoin (BTC)</h2>
             <img src="btc_qr.png" alt="BTC QR Code">
@@ -29,17 +27,13 @@
                 <i class="far fa-copy"></i> Copy Address
             </button>
         </div>
-
         <footer>
             <p>Thank you for your generous support! <i class="fas fa-rocket"></i></p>
         </footer>
     </div>
-
     <script>
         function copyToClipboard(text) {
             navigator.clipboard.writeText(text);
-            
-            // Create and show a custom notification
             const notification = document.createElement('div');
             notification.style.position = 'fixed';
             notification.style.bottom = '20px';
@@ -53,22 +47,16 @@
             notification.style.zIndex = '1000';
             notification.style.animation = 'fadeInOut 2.5s ease-in-out';
             notification.innerHTML = '<i class="fas fa-check-circle"></i> Address copied to clipboard!';
-            
-            // Add Font Awesome icons dynamically
             const faCheck = document.createElement('i');
             faCheck.className = 'fas fa-check-circle';
             faCheck.style.marginRight = '8px';
             notification.prepend(faCheck);
             
             document.body.appendChild(notification);
-            
-            // Remove the notification after animation
             setTimeout(() => {
                 notification.remove();
             }, 2500);
         }
-
-        // Add the keyframes for the notification animation
         const style = document.createElement('style');
         style.textContent = `
             @keyframes fadeInOut {
