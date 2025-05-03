@@ -4,37 +4,81 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Support Our Mission</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
-        <h1>Support Us ❤️</h1>
-        <p>If you like what we do, you can support us with a donation!</p>
+        <h1>Support Our Mission <span class="pulse">❤️</span></h1>
+        <p>If you appreciate what we do, consider supporting us with a donation to help us continue our work!</p>
 
         <div class="wallet">
-            <h2>Donate USDT (TRC20)</h2>
+            <h2><i class="fab fa-ethereum coin-icon"></i> Donate USDT (TRC20)</h2>
             <img src="usdt_qr.png" alt="USDT QR Code">
-            <p class="address">Your-USDT-Wallet-Address-Here</p>
-            <button onclick="copyToClipboard('0xE814D11eA68551E5c5101eBB9601C86B93B27bE7')">Copy Address</button>
+            <p class="address">0xE814D11eA68551E5c5101eBB9601C86B93B27bE7</p>
+            <button onclick="copyToClipboard('0xE814D11eA68551E5c5101eBB9601C86B93B27bE7')">
+                <i class="far fa-copy"></i> Copy Address
+            </button>
         </div>
 
         <div class="wallet">
-            <h2>Donate Bitcoin (BTC)</h2>
+            <h2><i class="fab fa-bitcoin coin-icon"></i> Donate Bitcoin (BTC)</h2>
             <img src="btc_qr.png" alt="BTC QR Code">
-            <p class="address">Your-BTC-Wallet-Address-Here</p>
-            <button onclick="copyToClipboard('bc1qmyxyzcrmvgzhl7l7a87dcs2ddpxsr48rzdzw8n')">Copy Address</button>
+            <p class="address">bc1qmyxyzcrmvgzhl7l7a87dcs2ddpxsr48rzdzw8n</p>
+            <button onclick="copyToClipboard('bc1qmyxyzcrmvgzhl7l7a87dcs2ddpxsr48rzdzw8n')">
+                <i class="far fa-copy"></i> Copy Address
+            </button>
         </div>
 
         <footer>
-            <p>Thank you for your support! 🚀</p>
+            <p>Thank you for your generous support! <i class="fas fa-rocket"></i></p>
         </footer>
     </div>
 
     <script>
         function copyToClipboard(text) {
             navigator.clipboard.writeText(text);
-            alert("Wallet address copied!");
+            
+            // Create and show a custom notification
+            const notification = document.createElement('div');
+            notification.style.position = 'fixed';
+            notification.style.bottom = '20px';
+            notification.style.left = '50%';
+            notification.style.transform = 'translateX(-50%)';
+            notification.style.backgroundColor = '#6c5ce7';
+            notification.style.color = 'white';
+            notification.style.padding = '12px 24px';
+            notification.style.borderRadius = '30px';
+            notification.style.boxShadow = '0 4px 15px rgba(0,0,0,0.2)';
+            notification.style.zIndex = '1000';
+            notification.style.animation = 'fadeInOut 2.5s ease-in-out';
+            notification.innerHTML = '<i class="fas fa-check-circle"></i> Address copied to clipboard!';
+            
+            // Add Font Awesome icons dynamically
+            const faCheck = document.createElement('i');
+            faCheck.className = 'fas fa-check-circle';
+            faCheck.style.marginRight = '8px';
+            notification.prepend(faCheck);
+            
+            document.body.appendChild(notification);
+            
+            // Remove the notification after animation
+            setTimeout(() => {
+                notification.remove();
+            }, 2500);
         }
+
+        // Add the keyframes for the notification animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fadeInOut {
+                0% { opacity: 0; transform: translateX(-50%) translateY(20px); }
+                20% { opacity: 1; transform: translateX(-50%) translateY(0); }
+                80% { opacity: 1; transform: translateX(-50%) translateY(0); }
+                100% { opacity: 0; transform: translateX(-50%) translateY(-20px); }
+            }
+        `;
+        document.head.appendChild(style);
     </script>
 </body>
 </html>
