@@ -6,55 +6,180 @@
     --darker: #16213e;
     --light: #e2e2e2;
     --lighter: #f8f9fa;
+    --glow: 0 0 20px rgba(108, 92, 231, 0.6);
 }
 
+/* Full-screen immersive background */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, var(--dark), var(--darker));
+    background: 
+        radial-gradient(circle at 20% 30%, var(--dark) 0%, var(--darker) 100%),
+        url('https://images.unsplash.com/photo-1639762681057-408e52192e55?q=80&w=2232&auto=format&fit=crop') center/cover no-repeat fixed;
     margin: 0;
     padding: 0;
     min-height: 100vh;
     color: var(--light);
+    overflow-x: hidden;
 }
 
+/* Giant container with glass morphism */
 .container {
-    max-width: 700px;
-    margin: 50px auto;
-    background: rgba(26, 26, 46, 0.8);
-    padding: 40px;
+    max-width: 800px;
+    width: 90%;
+    margin: 5vh auto;
+    background: rgba(26, 26, 46, 0.7);
+    padding: 50px;
     text-align: center;
-    border-radius: 16px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    box-shadow: 
+        0 15px 50px rgba(0, 0, 0, 0.5),
+        inset 0 0 20px rgba(108, 92, 231, 0.2);
+    backdrop-filter: blur(15px);
+    border: 2px solid rgba(255, 255, 255, 0.15);
+    transform-style: preserve-3d;
+    perspective: 1000px;
 }
 
+/* Massive headline with gradient text */
 h1 {
-    color: var(--lighter);
-    font-size: 2.5rem;
-    margin-bottom: 20px;
+    background: linear-gradient(45deg, var(--lighter), var(--secondary));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-size: 3.5rem;
+    margin-bottom: 30px;
+    text-shadow: 0 5px 15px rgba(108, 92, 231, 0.3);
+    letter-spacing: -1px;
+    font-weight: 800;
 }
 
+/* Wallet section that pops */
 .wallet {
-    background: rgba(22, 33, 62, 0.6);
-    border: 1px solid rgba(108, 92, 231, 0.3);
+    background: rgba(22, 33, 62, 0.7);
+    border: 2px solid rgba(108, 92, 231, 0.4);
+    border-radius: 16px;
+    padding: 30px;
+    margin: 40px 0;
+    transition: all 0.3s ease;
+    box-shadow: var(--glow);
 }
 
+.wallet:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(108, 92, 231, 0.4);
+}
+
+/* Address display with futuristic look */
 .address {
-    background: rgba(0, 0, 0, 0.3);
+    background: rgba(0, 0, 0, 0.4);
     color: var(--lighter);
+    font-size: 1.2rem;
+    padding: 20px;
+    border-radius: 12px;
+    border-left: 4px solid var(--accent);
+    font-family: 'Courier New', monospace;
+    letter-spacing: 1px;
+    margin: 25px 0;
+    position: relative;
+    overflow: hidden;
 }
 
+.address::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        transparent, 
+        rgba(108, 92, 231, 0.1), 
+        transparent);
+    animation: shine 3s infinite;
+}
+
+@keyframes shine {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+/* 3D buttons with animation */
 button {
     background: linear-gradient(45deg, var(--primary), var(--secondary));
-    box-shadow: 0 4px 15px rgba(108, 92, 231, 0.3);
+    box-shadow: 
+        0 8px 25px rgba(108, 92, 231, 0.4),
+        inset 0 2px 5px rgba(255,255,255,0.1);
+    color: white;
+    border: none;
+    padding: 18px 36px;
+    font-size: 1.2rem;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, var(--secondary), var(--primary));
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.4s ease;
 }
 
 button:hover {
-    background: linear-gradient(45deg, var(--secondary), var(--primary));
-    box-shadow: 0 8px 20px rgba(108, 92, 231, 0.4);
+    transform: translateY(-5px) scale(1.03);
+    box-shadow: 0 15px 30px rgba(108, 92, 231, 0.6);
 }
 
+button:hover::before {
+    opacity: 1;
+}
+
+button:active {
+    transform: translateY(2px);
+}
+
+/* Footer with subtle glow */
 footer {
     color: var(--secondary);
+    margin-top: 50px;
+    font-size: 1.1rem;
+    text-shadow: 0 0 10px rgba(162, 155, 254, 0.3);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .container {
+        padding: 30px 20px;
+        width: 95%;
+    }
+    
+    h1 {
+        font-size: 2.5rem;
+    }
+    
+    button {
+        padding: 15px 30px;
+    }
+}
+
+/* Floating animation for visual interest */
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.floating {
+    animation: float 4s ease-in-out infinite;
 }
